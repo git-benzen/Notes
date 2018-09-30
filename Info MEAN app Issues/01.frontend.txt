@@ -1,0 +1,33 @@
+Angular 6 - MEAN Stack Crash Course - Part 1: Front-end Project Setup And Routing
+//////////////////////////////////////////////////////////////
+Make new folder "Mean-Stack-Project"
+create new Angular app "frontend" in that folder
+
+> ng new frontend
+
+change into folder "frontend"
+ test app ->
+
+> ng serve -o
+
+-> exit server
+
+> ng add @angular/material
+
+> ng g c components/list
+> ng g c components/create
+> ng g c components/edit
+
+//////////////////////////////////////////////////////////
+
+Routing for app ->
+
+import { RouterModule, Routes} from '@angular/router';
+
+ add to imports array.  
+-> ...................forRoot(routes)....................
+
+declare routes ->
+ const routes: Routes = [ ..............
+
+];

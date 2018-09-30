@@ -1,0 +1,72 @@
+// start mongo deamon
+> mongod
+---------------------------------------------------------------
+// start mongo shell
+> mongo
+---------------------------------------------------------------
+// Show Databases 
+> show dbs
+---------------------------------------------------------------
+// Make Database Myplaylist
+> use Myplaylist
+---------------------------------------------------------------
+// switch to Database Myplaylist
+> use Myplaylist
+---------------------------------------------------------------
+// Make Collection videos
+> db.createCollection('videos');
+---------------------------------------------------------------
+// Show Collections
+> show collections
+---------------------------------------------------------------
+// Insert documents
+  zie hieronder **
+---------------------------------------------------------------
+// Show Documents 
+> db.videos.find();
+---------------------------------------------------------------
+// Show documents duidelijker in cmd
+> db.videos.find().pretty();
+---------------------------------------------------------------
+// Show documents met filter
+> db.videos.find().limit(10).sort({title:1});
+---------------------------------------------------------------
+// make user for DB
+db.createUser({
+user: "mongoose", 
+pwd: "kfhskjdhkfhsd15(!з!(з89а!(аз!", 
+roles:["readWrite","dbAdmin"]
+});
+
+
+-> Successfully added user: { "user" : "mongoose", "roles" : [ "readWrite", "dbAdmin" ] }
+---------------------------------------------------------------
+** 
+// vb insert document via Cli
+
+db.videos.insert(
+{
+"title": "Angular Mean-Stack tutorial",
+"url": "https://www.youtube.com/watch?v=vLvNr3Wa5YI&index=1&list=PLC3y8-rFHvwj200LLotCYum_9wmGeTJx9",
+"description": "Make your first Angular Mean-stack App"
+}
+)
+
+db.videos.insert(
+{
+"title": "MongoDB first install",
+"url": "https://www.youtube.com/watch?v=pWbMrx5rVBE",
+"description": "MongoDB in 30 minutes"
+}
+)
+
+db.videos.insert(
+{
+"title": "Angular Material Tutorial",
+"url": "https://www.youtube.com/watch?v=wPT3K3w6JtU",
+"description": "Learn to use Angular Material Design to make your Angular applications look modern and beautiful."
+}
+)
+
+
+

@@ -1,0 +1,61 @@
+Angular 6- MEAN stack crash course Part 2
+------------------------------------------------------------
+create folder "backend"
+change to folder en run 
+> npm init -y
+:::::::::::::::::::::::::::::::Babel::::::::::::::::::::::::::::::::::::::::::::::::::
+(ecmascript 6 nog niet supported for node nu-> alleen 5.0)
+Dus kan je wel gebruiker met compiler Babel om te developen als dev-dependencie en kan je laatste typescript ES6 gebruiken.
+
+installeren in backend folder als dev idependecies. 
+> npm install --save-dev babel-cli babel-preset-env
+
+make a babel env file -> .babelrc  -> code in file :
+{   
+    "presets": ["env"]
+}
+
+babel watch installeren zodat 'babel server"  altijd ververst als er veranderingen zijn :
+> npm install --save-dev babel-watch
+
+add tot package.json "scripts":
+ "dev": "babel-watch server.js"
+---> so you can run devserver babel :  > npm run dev
+
+:::::::::::::::::::::::::::::::::::::::Express::::::::::::::::::::::::::::::::::::::::
+> npm install express
+> npm install mongoose
+> npm install cors
+
+create file server.js
+
+--> minimal code for firsttime create and test server (ES6)
+-------------------------
+import express from 'express';
+
+const app = express();
+
+app.get('/', (req, res) => res.send('Hello World'));
+app.listen(4000, () => console.log('Express Server running on port 4000'));
+-------------------------
+--> minimal code for firsttime create and test server (ES5)
+ var express = require('express')
+ var app = express()
+
+ app.get('/', function (req, res) { res.send('Hello World')})
+ app.listen(4000)
+-------------------------
+
+nog verder config server.js    dependencies project cors, body-parser, mongoose
+daarna make connection mongoose,  make express router, make app use cors en body-parser.
+make models folder en create models file  issue.
+ in issue file create model Issue en export it in class.
+
+make DB 'storm' en collection 'issues'  
+maakt connectie naar die db en model issues
+> mongoose.connect('mongodb://localhost:27017/storm');
+
+test uit via browser te surfen naar:  localhost:4000/issues  , localhost:4000/issues/(+ id plakken van een document in DB) .
+ Dan via Postman hetzelfde doen en uittesten post  issues/add, post  issues/update/(id),  get issues/delete/(id).
+
+dan volgt verder afwerking Angular forms.

@@ -1,0 +1,23 @@
+// Make new Angular App Videoplaylist with routing module
+> ng new Videoplaylist --routing
+
+// Change to folder App and open project in Browser
+> ng serve -o
+
+// Build Project for export
+> ng build
+
+// Install Express and body-parser in project
+> npm install --save express body-parser
+
+// Make Express server
+> server.js
+
+// Make Serverfolder 
+// Make in that folder a folder routes
+// Make in that folder a file called api.js
+> api.js
+
+// test server -> in project folder run node server.
+// than in browser go to localhost:3000 en localhost:3000/api  for tests
+

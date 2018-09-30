@@ -1,0 +1,14 @@
+// Make 2 componenten aan
+ng g c home
+ng g c video-center
+------------------------------------------------------------------------
+// Install Bootstrap in project
+// Voeg routes toe in app-routing.moduel.ts
+const routes: Routes = [
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
+  {path: 'videos', component: VideoCenterComponent}
+];
+------------------------------------------------------------------------
+
+

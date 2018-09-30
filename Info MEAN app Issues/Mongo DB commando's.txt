@@ -1,0 +1,52 @@
+// Rename Database -> moet je eerst kopiëren naar andere naam en dan oude database deleten:
+> db.copyDatabase('issues', 'storm');
+> use issues
+> db.dropDatabase();
+---------------------------------------------------------------
+// controleren
+> show dbs
+> use storm
+> show collections
+--------------------------------------------------------------------
+
+ 
+----alles terug gezet dus wat hieronder staat nog terug helemaal opnieuw te testen.-------------
+
+
+// make a hoofd-user for Mongo DB
+
+use admin
+db.createUser(
+  {
+    user: "cavere-admin",
+    pwd: "toorroot",
+    roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
+  }
+)
+-------------------------------------------------------------------------------
+// make a user for database storm:
+
+use storm
+db.createUser(
+  {
+    user: "bob",
+    pwd: "mean",
+    roles: [ { role: "readWrite", db: "storm" } ]
+  }
+)
+---------------------------------------------------------------------------------------
+
+//authenticate during connection:
+
+mongo --port 27777 -u "bob" -p "mean" --authenticationDatabase "storm"
+
+-----------------------------------------------------------------
+
+make auth verplicht
+ga naar programfiles en change mongod.cfg
+-> change 
+# security 
+   naar
+security: authorization: "enabled"
+  en port naar  
+port: 27777
